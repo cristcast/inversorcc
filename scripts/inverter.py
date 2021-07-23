@@ -12,7 +12,7 @@ from cv_bridge import CvBridge, CvBridgeError
 class image_converter:
 
   def __init__(self):
-    self.image_pub = rospy.Publisher("image_inv",Image)
+    self.image_pub = rospy.Publisher("image_inv",Image,queue_size=10)
 
     self.bridge = CvBridge()
     self.image_sub = rospy.Subscriber("/cv_camera/image_raw",Image,self.callback)
